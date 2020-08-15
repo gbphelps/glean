@@ -1,0 +1,9 @@
+@use '../../styles/variables.scss' as v;
+
+.job {
+    border-radius: v.$border-radius;
+    box-shadow: v.$box-shadow;
+    height: 100px;
+    background: white;
+    margin-bottom: 24px;
+}

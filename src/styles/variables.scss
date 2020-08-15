@@ -1,0 +1,39 @@
+$screen: (
+    xxs: 320px,
+    xs: 480px,
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1366px,
+);
+
+@function s($val) {
+    @if (type_of($val) == number) {
+        @return $val;
+    } @else {
+        @return map-get($screen, $val);
+    }
+}
+
+@mixin media($min,$max:null) {
+    @if ($max == null) {
+        @media screen and (min-width: #{s($min)}) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: #{s($min)}) and (max-width: #{s($max)}) {
+            @content;
+        }
+    }
+}
+
+$primary: hsl(180, 14%, 20%);
+$cyan: hsl(180, 29%, 50%);
+$bg: hsl(180, 52%, 96%);
+$off-white: hsl(180, 31%, 95%);
+
+$border-radius: 5px;
+$box-shadow: 0 40px 30px -20px rgba($cyan, .15), 0 5px 20px -5px rgba($cyan, .3);
+
+$font-size-base: 15px;
+$font-face: Spartan, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;

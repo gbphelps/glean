@@ -1,63 +1,18 @@
-$screen: (
-    xxs: 320px,
-    xs: 480px,
-    sm: 640px,
-    md: 768px,
-    lg: 1024px,
-    xl: 1366px,
-);
+@use './variables.scss' as v;
 
-
-@function s($val) {
-    @if (type_of($val) == number) {
-        @return $val;
-    } @else {
-        @return map-get($screen, $val);
-    }
+svg {
+    display: block;
 }
 
-@mixin media($min,$max:null) {
-    @if ($max == null) {
-        @media screen and (min-width: #{s($min)}) {
-            @content;
-        }
-    } @else {
-        @media screen and (min-width: #{s($min)}) and (max-width: #{s($max)}) {
-            @content;
-        }
-    }
+html, body {
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    background: v.$bg;
+}
 
-// # Front-end Style Guide
-
-// ## Layout
-
-// The designs were created to the following widths:
-
-// - Mobile: 375px
-// - Desktop: 1440px
-
-// ## Colors
-
-// ### Primary
-
-// - Desaturated Dark Cyan: hsl(180, 29%, 50%)
-
-// ### Neutral
-
-// - Light Grayish Cyan (Background): hsl(180, 52%, 96%)
-// - Light Grayish Cyan (Filter Tablets): hsl(180, 31%, 95%)
-// - Dark Grayish Cyan: hsl(180, 8%, 52%)
-// - Very Dark Grayish Cyan: hsl(180, 14%, 20%)
-
-// ## Typography
-
-// ### Body Copy
-
-// - Font size: 15px
-
-// ### Headings
-
-// - Family: [Spartan](https://fonts.google.com/specimen/Spartan)
-// - Weights: 500, 700
+.bg-cyan {
+    background: v.$cyan;
+}
