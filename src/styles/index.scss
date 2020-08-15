@@ -16,3 +16,14 @@ body {
 .bg-cyan {
     background: v.$cyan;
 }
+
+.bg-primary {
+    background: v.$primary;
+}
+
+* {
+    font-family: v.$font-stack;
+    line-height: 1.5;
+    box-sizing: border-box;
+    position: relative;
+}
