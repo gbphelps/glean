@@ -23,6 +23,14 @@ module.exports = {
     'react',
     '@typescript-eslint',
   ],
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
   rules: {
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'react/jsx-props-no-spreading': 'off',

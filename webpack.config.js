@@ -5,6 +5,7 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'static'),
     historyApiFallback: true,
+    contentBasePublicPath: '/public',
   },
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
@@ -28,7 +29,12 @@ module.exports = {
       },
     }, {
       test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
+      use: ['style-loader', 'css-loader', {
+        loader: 'sass-loader',
+        options: {
+          additionalData: '$domain: \'http://localhost:8080\';',
+        },
+      }],
     }, {
       test: /\.svg$/,
       use: ['@svgr/webpack'],

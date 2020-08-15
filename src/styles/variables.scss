@@ -17,17 +17,9 @@ $screen: (
   }
 }
 
-@mixin media($min,$max:null) {
-  @if ($max == null) {
-    @media screen and (min-width: #{s($min)}) {
-      @content;
-    }
-  }
-
-  @else {
-    @media screen and (min-width: #{s($min)}) and (max-width: #{s($max)}) {
-      @content;
-    }
+@mixin media($min, $max) {
+  @media screen and (min-width: #{s($min)}) and (max-width: #{s($max)}) {
+    @content;
   }
 }
 

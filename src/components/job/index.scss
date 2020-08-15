@@ -1,94 +1,172 @@
 @use '../../styles/variables.scss' as v;
 
-.job-card {
-  @include v.card;
+$bp-1: 600px;
+$bp-2: 850px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
+.job-card-container {
+  transition: opacity 0.3s, transform 0.3s;
 
-  &.featured::before {
-    content: '';
-    display: block;
+  @include v.media(0, $bp-1) {
+    padding-bottom: 40px;
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid rgba(v.$gray, 0.4);
+    display: none;
+    margin: 30px 0;
+
+    @include v.media(0, $bp-2) {
+      display: block;
+    }
+  }
+
+  // &.exit {
+  //   opacity: 0;
+  //   transform: translateY(-10%);
+  //   z-index: -1;
+  // }
+
+  // &.enter {
+  //   animation-name: fade-in-small;
+  //   animation-duration: 0.3s;
+  //   animation-fill-mode: both;
+  // }
+
+  .logo.absolute {
+    height: 50px;
+    width: auto;
     position: absolute;
+    display: none;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 5px;
-    background: v.$cyan;
+    transform: translateY(-50%) translateX(50%);
+    z-index: 1;
+
+    @include v.media(0, $bp-1) {
+      display: block;
+    }
   }
 
-  img {
-    flex-shrink: 0;
-    width: auto;
-    height: 90px;
-  }
+  .job-card {
+    @include v.card;
 
-  .main-content {
+    width: 100%;
     display: flex;
-    flex-shrink: 0;
+    justify-content: space-between;
     align-items: center;
-  }
+    overflow: hidden;
 
-  .top-details {
-    display: flex;
-    align-items: center;
-  }
-
-  .logo {
-    margin-right: 26px;
-  }
-
-  .company {
-    color: v.$cyan;
-    font-weight: 600;
-    margin-right: 20px;
-    font-size: 14px;
-  }
-
-  .position {
-    font-weight: 700;
-    color: v.$primary;
-    font-size: 18px;
-    margin: 8px 0;
-  }
-
-  .tag {
-    @include v.tag;
-
-    text-decoration: none;
-  }
-
-  .pill {
-    border-radius: 1000px;
-    display: inline;
-    padding: 6px 10px 2px 10px;
-    color: v.$white;
-    font-size: 10.5px;
-    font-weight: 600;
-    margin-right: 8px;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .bottom-details {
-    color: v.$gray;
-    display: flex;
-    font-size: 15px;
-    font-weight: 500;
-
-    & > ::after {
-      content: "\2022";
-      padding: 0 16px;
+    @include v.media(0, $bp-2) {
+      flex-direction: column;
     }
 
-    & > :last-child::after {
-      display: none;
+    &.featured::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 5px;
+      background: v.$cyan;
+    }
+
+    .logo.inline {
+      flex-shrink: 0;
+      width: auto;
+      height: 90px;
+
+      @include v.media(0, $bp-1) {
+        display: none !important;
+      }
+    }
+
+    .main-content {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+
+      @include v.media(0, $bp-2) {
+        width: 100%;
+      }
+    }
+
+    .top-details {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      margin-right: 26px;
+    }
+
+    .company {
+      color: v.$cyan;
+      font-weight: 600;
+      margin-right: 20px;
+      font-size: 14px;
+    }
+
+    .position {
+      font-weight: 700;
+      color: v.$primary;
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    .tag {
+      @include v.tag;
+
+      text-decoration: none;
+    }
+
+    .pill {
+      border-radius: 1000px;
+      display: inline;
+      padding: 6px 10px 2px 10px;
+      color: v.$white;
+      font-size: 10.5px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+
+      @include v.media(0, $bp-2) {
+        justify-content: flex-start;
+        width: 100%;
+
+        & > .tag {
+          margin-left: 0;
+          margin-right: 18px;
+        }
+      }
+    }
+
+    .bottom-details {
+      color: v.$gray;
+      display: flex;
+      font-size: 15px;
+      font-weight: 500;
+      white-space: nowrap;
+
+      @include v.media(0, 450px) {
+        font-size: 12px;
+      }
+
+      & > ::after {
+        content: "\2022";
+        padding: 0 16px;
+      }
+
+      & > :last-child::after {
+        display: none;
+      }
     }
   }
 }

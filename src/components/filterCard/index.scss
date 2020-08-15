@@ -1,0 +1,50 @@
+@use '../../styles/variables.scss' as v;
+
+.filter-content {
+  min-height: 76px;
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag.remove {
+    &.enter {
+      animation-name: grow;
+      animation-duration: 0.3s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: both;
+    }
+
+    &.exit {
+      transform: scaleY(0) scaleX(0.5);
+      opacity: 0;
+      transition-timing-function: ease-in;
+      transition-duration: 0.2s;
+    }
+  }
+
+  a.clear {
+    color: v.$cyan;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+    line-height: 0.95;
+
+    &::before {
+      transition: 0.2s;
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      top: 0;
+      left: 0;
+      border-bottom: 1px solid v.$cyan;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
