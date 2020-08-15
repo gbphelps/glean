@@ -29,24 +29,23 @@
   }
 
   .filters-card {
+    @include v.card;
+
+    display: flex;
+    background: v.$white;
+    padding-top: 13px;
+    padding-bottom: 13px;
     width: 100%;
     position: absolute;
     margin-bottom: 0;
     bottom: -36px;
+    z-index: 1;
   }
-}
 
-.tag {
-  @include v.tag;
+  .tag {
+    @include v.tag;
 
-  margin: 0;
-  margin-right: 18px;
-}
-
-.filters-card {
-  @include v.card;
-
-  background: v.$white;
-  padding-top: 20px;
-  padding-bottom: 20px;
+    margin-left: 0;
+    margin-right: 18px;
+  }
 }

@@ -55,13 +55,15 @@ $font-stack: spartan, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxy
 @mixin tag {
   background: $off-white;
   color: $cyan;
-  display: inline-block;
   padding: 7px 10px 5px 10px;
   margin-left: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  margin-top: 8px;
   border-radius: $border-radius;
   font-weight: 600;
   font-size: 14px;
+  text-decoration: none;
+  display: block;
 }
 
 @mixin document-margins {

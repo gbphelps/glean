@@ -1,6 +1,7 @@
 import React from 'react';
 import './app.scss';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 import useCategories from './utils/useCategories';
 import Job from './components/job';
 import jobs from '../data.json';
@@ -18,6 +19,13 @@ const App = (): JSX.Element => {
     return !categories.length || categories.every((c) => jobCategories.has(c));
   }
 
+  function getUrl(category: string) {
+    const uncasedCategory = category.toLowerCase();
+    const nextCategories = categories.filter((c) => c !== uncasedCategory);
+    const url = nextCategories.length ? `/filter?categories=${nextCategories.join(',')}` : '/';
+    return url;
+  }
+
   return (
     <>
       <div
@@ -29,7 +37,7 @@ const App = (): JSX.Element => {
             { !!categories.length
           && (
           <div className="filters-card">
-            <div className="tag">tag</div>
+            {categories.map((c) => <Link className="tag" to={getUrl(c)}>{c}</Link>)}
           </div>
           )}
           </div>
