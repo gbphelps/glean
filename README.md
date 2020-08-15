@@ -2,5 +2,6 @@
 
 To run this project:
 
-1) In the command line, run `npm install && npm run serve`
-2) Navigate to localhost:8080 in the browser
+1) In the terminal, run `git clone https://github.com/gbphelps/glean`
+2) Run `npm install && npm run serve`
+3) Navigate to `localhost:8080` in the browser
