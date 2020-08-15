@@ -1,24 +1,9 @@
 import React from 'react';
 import './index.scss';
 import cn from 'classnames';
-import { useLocation } from 'react-router-dom';
-import queryString from 'query-string';
-
-interface Job {
-    id: number,
-    company: string;
-    logo: string;
-    new: boolean;
-    featured: boolean;
-    position: string;
-    role: string;
-    level: string;
-    postedAt: string;
-    contract: string;
-    location: string;
-    languages: string[],
-    tools: string[],
-}
+import { Link } from 'react-router-dom';
+import useCategories from '../../utils/useCategories';
+import { JobInterface } from '../../utils/types';
 
 const Job = ({
   company,
@@ -33,10 +18,20 @@ const Job = ({
   location,
   languages,
   tools,
-}: Job) => {
-  const { search } = useLocation();
-  const filter = queryString.parse(search, { arrayFormat: 'comma' });
-  console.log(filter);
+}: JobInterface): JSX.Element => {
+  const categories = useCategories();
+
+  const getUrl = (category: string) => {
+    const nextCategories = [];
+    categories.forEach((c) => {
+      if (c !== category) nextCategories.push(c);
+    });
+    nextCategories.push(category.toLowerCase());
+    return `/filter?categories=${nextCategories.sort().join(',')}`;
+  };
+
+  const Tag = ({ category }: {category: string}) => <Link className="tag" to={getUrl(category)}>{category}</Link>;
+
   return (
     <div className={cn('job-card', { featured: isFeatured })}>
       <div className="main-content">
@@ -57,10 +52,10 @@ const Job = ({
       </div>
 
       <div className="tags">
-        <div className="tag">{role}</div>
-        <div className="tag">{level}</div>
-        {languages.map((language) => <div className="tag">{language}</div>)}
-        {tools.map((tool) => <div className="tag">{tool}</div>)}
+        <Tag category={role} />
+        <Tag category={level} />
+        {languages.map((language) => <Tag category={language} />)}
+        {tools.map((tool) => <Tag category={tool} />)}
       </div>
     </div>
   );

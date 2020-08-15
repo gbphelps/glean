@@ -56,6 +56,8 @@
 
   .tag {
     @include v.tag;
+
+    text-decoration: none;
   }
 
   .pill {

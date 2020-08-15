@@ -3,7 +3,8 @@ const path = require('path');
 
 module.exports = {
   devServer: {
-    contentBase: path.resolve(__dirname,'static'),
+    contentBase: path.resolve(__dirname, 'static'),
+    historyApiFallback: true,
   },
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
