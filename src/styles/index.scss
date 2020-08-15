@@ -1,5 +1,7 @@
 @use './variables.scss' as v;
 
+@import './animations.scss';
+
 svg,
 img {
   display: block;
@@ -80,53 +82,5 @@ body {
         background: v.$primary;
       }
     }
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(30%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fade-in-small {
-  0% {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fade-out {
-  100% {
-    opacity: 0;
-    transform: translateY(-30%);
-  }
-
-  0% {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes grow {
-  0% {
-    transform: scaleX(0.3) scaleY(0);
-    opacity: 0;
-  }
-
-  100% {
-    transform: none;
-    opacity: 1;
   }
 }
