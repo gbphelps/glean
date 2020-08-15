@@ -28,7 +28,59 @@ body {
   line-height: 1.5;
   box-sizing: border-box;
   position: relative;
-  // outline: 1px solid red;
+}
+
+.tag {
+  transition: 0.2s;
+  $padding: 7px 10px 5px 10px;
+
+  background: v.$off-white;
+  color: v.$cyan;
+  padding: $padding;
+  margin-left: 16px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  border-radius: v.$border-radius;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+
+  &:hover {
+    background: v.$cyan;
+    color: v.$white;
+  }
+
+  &.remove {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+
+    &:hover {
+      color: v.$cyan;
+      background: v.$off-white;
+    }
+
+    span {
+      top: 1px;
+    }
+
+    a {
+      transition: 0.2s;
+      margin-left: 10px;
+      padding: 10px;
+      background: v.$cyan;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background: v.$primary;
+      }
+    }
+  }
 }
 
 @keyframes fade-in {
