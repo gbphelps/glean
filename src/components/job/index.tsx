@@ -23,10 +23,11 @@ const Job = ({
 
   const getUrl = (category: string) => {
     const nextCategories = [];
+    const uncasedCategory = category.toLowerCase();
     categories.forEach((c) => {
-      if (c !== category) nextCategories.push(c);
+      if (c !== uncasedCategory) nextCategories.push(c);
     });
-    nextCategories.push(category.toLowerCase());
+    nextCategories.push(uncasedCategory);
     return `/filter?categories=${nextCategories.sort().join(',')}`;
   };
 

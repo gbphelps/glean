@@ -4,7 +4,7 @@
   @include v.document-margins;
 
   position: relative;
-  top: -36px;
+  padding-top: 75px;
 }
 
 .header {
@@ -16,6 +16,23 @@
   svg {
     min-width: 100%;
     min-height: 100%;
+  }
+
+  .header-content {
+    @include v.document-margins;
+
+    height: 100%;
+  }
+
+  .header-content-inner {
+    height: 100%;
+  }
+
+  .filters-card {
+    width: 100%;
+    position: absolute;
+    margin-bottom: 0;
+    bottom: -36px;
   }
 }
 
