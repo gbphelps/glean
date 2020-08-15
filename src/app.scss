@@ -7,6 +7,34 @@
   padding-top: 75px;
 }
 
+.filters {
+  display: flex;
+}
+
+a.clear {
+  color: v.$cyan;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 0.95;
+
+  &::before {
+    transition: 0.2s;
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid v.$cyan;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
+
 .header {
   background-color: v.$cyan;
   width: 100%;
@@ -31,7 +59,11 @@
   .filters-card {
     @include v.card;
 
+    animation-name: fade-in;
+    animation-duration: 0.5s;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: v.$white;
     padding-top: 13px;
     padding-bottom: 13px;
@@ -47,5 +79,17 @@
 
     margin-left: 0;
     margin-right: 18px;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
   }
 }

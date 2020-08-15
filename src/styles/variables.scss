@@ -53,9 +53,12 @@ $font-stack: spartan, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxy
 }
 
 @mixin tag {
+  transition: 0.2s;
+  $padding: 7px 10px 5px 10px;
+
   background: $off-white;
   color: $cyan;
-  padding: 7px 10px 5px 10px;
+  padding: $padding;
   margin-left: 16px;
   margin-bottom: 8px;
   margin-top: 8px;
@@ -63,7 +66,43 @@ $font-stack: spartan, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxy
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
-  display: block;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+
+  &:hover {
+    background: $cyan;
+    color: $white;
+  }
+
+  &.remove {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+
+    &:hover {
+      color: $cyan;
+      background: $off-white;
+    }
+
+    span {
+      top: 1px;
+    }
+
+    a {
+      transition: 0.2s;
+      margin-left: 10px;
+      padding: 10px;
+      background: $cyan;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background: $primary;
+      }
+    }
+  }
 }
 
 @mixin document-margins {

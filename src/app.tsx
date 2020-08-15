@@ -6,6 +6,7 @@ import useCategories from './utils/useCategories';
 import Job from './components/job';
 import jobs from '../data.json';
 import { JobInterface } from './utils/types';
+import getDisplayTag from './utils/getDisplayTag';
 
 const App = (): JSX.Element => {
   const categories = useCategories();
@@ -37,7 +38,15 @@ const App = (): JSX.Element => {
             { !!categories.length
           && (
           <div className="filters-card">
-            {categories.map((c) => <Link className="tag" to={getUrl(c)}>{c}</Link>)}
+            <div className="filters">
+              {categories.map((c) => (
+                <div className="tag remove">
+                  <span>{getDisplayTag(c)}</span>
+                  <Link to={getUrl(c)}><img alt="remove" src="./images/icon-remove.svg" /></Link>
+                </div>
+              ))}
+            </div>
+            <Link className="clear" to="/">Clear</Link>
           </div>
           )}
           </div>
