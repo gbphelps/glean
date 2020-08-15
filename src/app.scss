@@ -1,6 +1,35 @@
+@use './styles/variables.scss' as v;
+
 .content {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 48px;
+  @include v.document-margins;
+
+  position: relative;
+  top: -36px;
+}
+
+.header {
+  background-color: v.$cyan;
+  width: 100%;
+  height: 155px;
+  background-size: cover;
+
+  svg {
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+.tag {
+  @include v.tag;
+
+  margin: 0;
+  margin-right: 18px;
+}
+
+.filters-card {
+  @include v.card;
+
+  background: v.$white;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

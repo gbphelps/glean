@@ -1,29 +1,31 @@
 @use './variables.scss' as v;
 
-svg {
-    display: block;
+svg,
+img {
+  display: block;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: v.$bg;
+  background: v.$bg;
 }
 
 .bg-cyan {
-    background: v.$cyan;
+  background: v.$cyan;
 }
 
 .bg-primary {
-    background: v.$primary;
+  background: v.$primary;
 }
 
 * {
-    font-family: v.$font-stack;
-    line-height: 1.5;
-    box-sizing: border-box;
-    position: relative;
+  font-family: v.$font-stack;
+  line-height: 1.5;
+  box-sizing: border-box;
+  position: relative;
 }
